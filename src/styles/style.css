@@ -15,7 +15,7 @@
 /* Roadmap Section Css */
 .roadmap {
   padding-block: 80px 10px;
-  background: url("../img/roadmap-bg.png"), #fff center no-repeat;
+  background: url("../img/assets/roadmap-bg.png"), #fff center no-repeat;
   background-size: cover;
 }
 
@@ -389,7 +389,7 @@
 
 /* Footer */
 .footer {
-  background: url("../img/footer-bg.png"), #000 center no-repeat;
+  background: url("../img/assets/footer-bg.png"), #000 center no-repeat;
   background-size: cover;
   color: #fff;
   padding-top: 60px;
