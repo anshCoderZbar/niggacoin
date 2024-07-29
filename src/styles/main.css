@@ -566,7 +566,7 @@ img.left-flower {
   margin-bottom: 2rem;
 }
 
-#range {
+/* #range {
   -webkit-appearance: none;
   width: 100%;
 }
@@ -596,24 +596,67 @@ img.left-flower {
 #range::after {
   right: 0;
   content: attr(max);
+} */
+
+/* #range::-webkit-slider-runnable-track { */
+/* width: 100%;
+  height: 1rem;
+  cursor: pointer; */
+/* background: linear-gradient(90deg,
+      rgb(251 0 1 / 100%),
+      rgb(251 0 1 / 20%)); */
+/* background: linear-gradient(161deg, rgba(255, 135, 98, 0.2), rgba(251, 0, 0, 0.2)); */
+
+/* background-color: rgb(251 0 1 / 100%);
+  border-radius: 1rem;
+  animate: 0.2s; */
+/* } */
+
+
+
+
+#range {
+  -webkit-appearance: none;
+  /* Remove default WebKit styles */
+  width: 100%;
+  height: 1rem;
+  cursor: pointer;
+  background: none;
+  /* Remove default background */
 }
 
 #range::-webkit-slider-runnable-track {
   width: 100%;
   height: 1rem;
   cursor: pointer;
-  /* background: linear-gradient(90deg,
-      rgb(251 0 1 / 100%),
-      rgb(251 0 1 / 20%)); */
-
-  background: rgb(251 0 1 / 100%);
-  /* background: linear-gradient(161deg, rgba(255, 135, 98, 0.2), rgba(251, 0, 0, 0.2)); */
+  background-color: rgb(251, 0, 1, 1);
   border-radius: 1rem;
-  animate: 0.2s;
+  transition: 0.2s;
 }
 
-#range::-webkit-slider-thumb {
+#range::-moz-range-track {
+  width: 100%;
+  height: 1rem;
+  cursor: pointer;
+  background-color: rgb(251, 0, 1, 1);
+  border-radius: 1rem;
+  transition: 0.2s;
+}
+
+/* Optional: Styling the thumb for both browsers */
+/* #range::-webkit-slider-thumb {
   -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.2s;
+} */
+
+#range::-webkit-slider-thumb {
+  /* -webkit-appearance: none; */
   border: 8px solid rgb(251 0 1 / 100%);
   box-shadow: 0 1px 3px rgba(0, 0, 255, 0.3);
   border-radius: 50%;
@@ -622,6 +665,16 @@ img.left-flower {
   height: 32px;
   width: 32px;
   transform: translateY(calc(-50% + 8px));
+}
+
+#range::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 #tooltip {
