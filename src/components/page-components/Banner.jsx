@@ -74,7 +74,7 @@ export const Banner = () => {
                   </div>
                 </div>
                 <div className="container">
-                  <div className="row mb-5">
+                  <div className="row mb-2">
                     <div className="col-lg-12">
                       <div className="cstm-range-slider">
                         <div className="range-slider">
