@@ -343,7 +343,7 @@ export const Presale = () => {
                     id="range"
                     type="range"
                     step="10"
-                    value="200"
+                    defaultValuez="200"
                     min="500"
                     max="5500"
                   />
