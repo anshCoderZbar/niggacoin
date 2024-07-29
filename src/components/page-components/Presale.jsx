@@ -1,7 +1,9 @@
 import React from "react";
 import { ASSETS } from "../../img";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 export const Presale = () => {
+  const { publicKey } = useWallet();
   return (
     <>
       <section className="presale section-padding" id="presale">
@@ -238,14 +240,13 @@ export const Presale = () => {
               >
                 <div className="token-address-box">
                   <div className="token-numb">
-                    <input
-                      type="text"
-                      value="AujTJJ7aMS8LDo3bFzoyXDwT3jBALUbu4VZhzZdTZLmG"
-                      id="myInput"
-                      readOnly
-                    />
+                    <input type="text" defaultValue={publicKey} readOnly />
                   </div>
-                  <button>Copy</button>
+                  <button
+                    onClick={() => navigator.clipboard.writeText(publicKey)}
+                  >
+                    Copy
+                  </button>
                 </div>
               </div>
             </div>

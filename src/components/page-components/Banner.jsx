@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ASSETS } from "../../img";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export const Banner = () => {
   const [time, setTime] = useState({
@@ -8,6 +10,8 @@ export const Banner = () => {
     minutes: 0,
     seconds: 0,
   });
+
+  const { publicKey } = useWallet();
 
   useEffect(() => {
     const updateTimer = () => {
@@ -149,22 +153,26 @@ export const Banner = () => {
                     >
                       <div className="token-address-box">
                         <div className="token-numb">
-                          <input
-                            type="text"
-                            defaultValue="AujTJJ7aMS8LDo3bFzoyXDwT3jBALUbu4VZhzZdTZLmG"
-                          />
+                          <input type="text" defaultValue={publicKey} />
                         </div>
-                        <button>Copy</button>
+                        <button
+                          onClick={() =>
+                            navigator.clipboard.writeText(publicKey)
+                          }
+                        >
+                          Copy
+                        </button>
                       </div>
                     </div>
                     <div className="header-btn">
-                      <a
-                        href="https://wiki.niggacoin.vip"
-                        target="_blank"
-                        className="btn btn-primary"
-                      >
-                        Connect wallet
-                      </a>
+                      <div className="btn btn-primary btn_line">
+                        <WalletMultiButton
+                          style={{
+                            backgroundColor: "transparent",
+                          }}
+                        />
+                      </div>
+
                       <a
                         href="https://wiki.niggacoin.vip"
                         target="_blank"

@@ -66,12 +66,10 @@
   left: 50%;
   transform: translateX(-50%);
   top: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(251, 0, 1, 0) 0%,
-    #fb0001 51%,
-    rgba(251, 0, 1, 0) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(251, 0, 1, 0) 0%,
+      #fb0001 51%,
+      rgba(251, 0, 1, 0) 100%);
 }
 
 .roadmap-content {
@@ -159,19 +157,23 @@
   background-color: #000000;
   padding-block: 60px;
 }
+
 .nigga-ecosystem .custom-container {
   max-width: 1640px;
   width: calc(100% - 50px);
 }
+
 .ecosystem-main-txt {
   color: #fff;
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
 }
+
 .ecosystem-main-txt .ecosystem-heading {
   flex: 1;
 }
+
 .ecosystem-main-txt .ecosystem-heading span.subheading {
   font-size: 24px;
   font-weight: 500;
@@ -183,15 +185,18 @@
   display: inline-block;
   margin-bottom: 15px;
 }
+
 .ecosystem-main-txt .ecosystem-heading h2 {
   font-size: 53.33px;
   font-weight: 700;
   line-height: 72px;
   font-family: "Baloo 2", sans-serif;
 }
+
 .ecosystem-main-txt .ecosystem-psg {
   max-width: 670px;
 }
+
 .ecosystem-main-txt .ecosystem-psg p {
   font-size: 21.33px;
   font-weight: 400;
@@ -216,6 +221,7 @@
   height: 850px;
   gap: 16px;
 }
+
 .accordion .tabs {
   flex: 1;
   background-color: #0e0c0c;
@@ -253,6 +259,7 @@
   text-align: center;
   padding-top: 50px;
 }
+
 .accordion .tabs .tab-header .accordian-numbers {
   font-family: "Manrope", sans-serif;
   font-size: 42.67px;
@@ -260,10 +267,12 @@
   line-height: 37.33px;
   color: #ffffff;
 }
+
 .accordion .tabs .tab-header .text {
   position: relative;
 }
-.accordion .tabs .tab-header .text > div {
+
+.accordion .tabs .tab-header .text>div {
   position: relative;
   transform: rotate(0deg);
   transform-origin: unset;
@@ -346,12 +355,14 @@
   visibility: visible;
   opacity: 1;
 }
+
 .accordion .tabs .tab-content .tab-img img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   filter: blur(8px);
 }
+
 .accordion .tabs.is-active .tab-content .tab-content-wrapper h2 {
   font-family: "Manrope", sans-serif;
   font-size: 32px;
@@ -361,6 +372,7 @@
   align-items: flex-start;
   gap: 6px;
 }
+
 .accordion .tabs.is-active .tab-content .tab-content-wrapper ul {
   list-style: disc;
   padding-left: 20px;
@@ -371,10 +383,12 @@
   margin-top: 26px;
   margin-bottom: 60px;
 }
+
 .accordion .tabs.is-active .tab-content .tab-content-wrapper ul li {
   margin-top: 10px;
   list-style: disc !important;
 }
+
 .accordion .tabs .tab-header::before {
   content: "";
   width: 90px;
@@ -385,6 +399,7 @@
   transform: translateX(-50%);
   bottom: 30px;
 }
+
 /* Nigga Ecosystem Css End */
 
 /* Footer */
@@ -394,26 +409,31 @@
   color: #fff;
   padding-top: 60px;
 }
+
 .footer .cstm-container {
   max-width: 1410px;
   margin-inline: auto;
   width: calc(100% - 50px);
 }
+
 .footer-description {
   max-width: 470px;
   width: 100%;
 }
+
 .footer-links {
   max-width: 530px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 .footer-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .footer-description p {
   font-family: "Baloo 2", sans-serif;
   font-size: 18.67px;
@@ -421,10 +441,12 @@
   line-height: 26.67px;
   opacity: 0.7;
 }
+
 .footer-description img {
   max-width: 215px;
   width: 100%;
 }
+
 .footer-links .footer-href h2 {
   font-family: "Baloo 2", sans-serif;
   font-size: 24px;
@@ -432,10 +454,12 @@
   line-height: 29.33px;
   margin-bottom: 32px;
 }
+
 .footer-links .footer-href ul li {
   list-style: none;
   margin-top: 12px;
 }
+
 .footer-links .footer-href ul li a {
   font-family: "Baloo 2", sans-serif;
   font-size: 21.33px;
@@ -445,6 +469,7 @@
   text-decoration: none;
   opacity: 0.7;
 }
+
 .copyright {
   font-family: "Baloo 2", sans-serif;
   font-size: 18.67px;
@@ -455,6 +480,7 @@
   margin-top: 65px;
   padding-bottom: 30px;
 }
+
 /* Footer End */
 
 @media screen and (max-width: 1550px) {
@@ -468,32 +494,40 @@
     font-size: 20px;
     margin-bottom: 14px;
   }
+
   .roadmap-txt h2 {
     font-size: 45px;
     line-height: 50px;
   }
+
   .roadmap-main-bx {
     padding-block: 75px;
   }
+
   .roadmap-blue-txt {
     padding: 32px 30px 30px 30px;
   }
+
   .ecosystem-main-txt .ecosystem-heading h2 {
     font-size: 46px;
     line-height: 62px;
   }
-  .accordion .tabs .tab-header .text > div {
+
+  .accordion .tabs .tab-header .text>div {
     font-size: 28px;
   }
+
   .roadmap-content {
     gap: 12%;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper ul {
     font-size: 22px;
     line-height: 36.67px;
     margin-top: 26px;
     margin-bottom: 60px;
   }
+
   .roadmap-blue-txt {
     max-width: 568px;
   }
@@ -504,39 +538,48 @@
     padding: 32px 30px 30px 30px;
     max-width: 550px;
   }
+
   .roadmap-blue-txt h2 {
     font-size: 25px;
     line-height: 30px;
     margin-bottom: 12px;
   }
+
   .roadmap-blue-txt p {
     font-size: 18px;
     line-height: 28px;
   }
+
   .roadmap-main-bx {
     padding-block: 60px;
   }
-  .accordion .tabs .tab-header .text > div {
+
+  .accordion .tabs .tab-header .text>div {
     font-size: 24px;
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 36px;
     line-height: 37.33px;
     color: #ffffff;
   }
+
   .ecosystem-main-txt .ecosystem-heading h2 {
     font-size: 42px;
     line-height: 52px;
   }
+
   .ecosystem-main-txt .ecosystem-psg p {
     font-size: 19px;
     line-height: 30px;
   }
+
   .ecosystem-main-txt .ecosystem-heading span.subheading {
     font-size: 20px;
     line-height: 22.45px;
     margin-bottom: 12px;
   }
+
   .accordion .tabs {
     padding: 2rem;
   }
@@ -553,6 +596,7 @@
     height: auto;
     display: grid;
   }
+
   .accordion .tabs .tab-content {
     display: none;
   }
@@ -560,6 +604,7 @@
   .accordion .tabs.tabs.is-active .tab-content {
     display: block;
   }
+
   .accordion .tabs .tab-header {
     padding-top: 0;
     position: relative;
@@ -568,6 +613,7 @@
     flex-direction: row;
     align-items: center;
   }
+
   .accordion .tabs .tab-header::before {
     width: 1px;
     height: 100%;
@@ -576,18 +622,21 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  .accordion .tabs .tab-header .text > div {
+
+  .accordion .tabs .tab-header .text>div {
     writing-mode: unset;
     text-orientation: unset;
     font-size: 16px;
     line-height: normal;
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 20px;
     writing-mode: vertical-lr;
     text-orientation: unset;
     transform: rotate(-180deg);
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 20px;
     writing-mode: vertical-lr;
@@ -595,23 +644,29 @@
     transform: rotate(-180deg);
     line-height: 20px;
   }
+
   .accordion .tabs {
     padding: 20px 16px 20px 26px;
   }
+
   .accordion .tabs .tab-content .tab-img {
     position: absolute;
     text-align: center;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper {
     position: relative;
   }
+
   .accordion .tabs .tab-content .tab-img img {
     width: 82%;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper h2 {
     font-size: 18px;
     line-height: 26px;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper ul {
     font-size: 15px;
     line-height: 23.67px;
@@ -619,8 +674,13 @@
     margin-bottom: 40px;
     opacity: 0.8;
   }
+
   .accordion .tabs.is-active {
     padding: 32px 30px 45px 30px;
+  }
+
+  .wallet-adapter-button {
+    font-size: 15px;
   }
 }
 
@@ -629,47 +689,59 @@
     font-size: 24px;
     line-height: 37.33px;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper ul {
     font-size: 18px;
     line-height: 28.67px;
     margin-top: 20px;
     margin-bottom: 40px;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper img.graphimage {
     width: 50%;
   }
+
   .accordion {
     height: 600px;
   }
+
   .footer-links {
     max-width: 340px;
   }
+
   .footer-description {
     max-width: 400px;
     width: 100%;
   }
+
   .footer-description p {
     font-size: 16px;
     line-height: 24px;
   }
+
   .ecosystem-main-txt {
     flex-wrap: wrap;
   }
+
   .ecosystem-main-txt .ecosystem-heading {
     flex: unset;
     width: 100%;
   }
+
   .ecosystem-main-txt .ecosystem-psg {
     max-width: 100%;
   }
+
   .ecosystem-main-txt {
     flex-wrap: wrap;
     gap: 22px;
     text-align: center;
   }
+
   .ecosystem-main-txt .ecosystem-psg p {
     text-align: center;
   }
+
   .roadmap-content {
     gap: 25px;
     flex-wrap: wrap;
@@ -677,26 +749,32 @@
     padding-left: 70px;
     align-items: start;
   }
+
   .roadmap-main-bx::before {
     left: 0;
     transform: translateX(0);
   }
+
   .roadmap-content .roadmap-txt-circle {
     left: -3px;
     transform: translate(0, -50%);
   }
+
   .roadmap-blue-txt {
     max-width: 650px;
   }
+
   .roadmap-titles {
     margin-top: 0;
     display: flex;
     align-items: center;
     gap: 16px;
   }
+
   .roadmap-titles h2 {
     margin-bottom: 0;
   }
+
   .roadmap-txt h2 {
     font-size: 40px;
     line-height: 45px;
@@ -708,24 +786,31 @@
     flex: 6;
     flex-shrink: 0;
   }
+
   .accordion .tabs {
     padding: 1rem;
   }
-  .accordion .tabs .tab-header .text > div {
+
+  .accordion .tabs .tab-header .text>div {
     font-size: 18px;
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 30px;
   }
+
   .accordion .tabs .tab-header {
     padding-top: 34px;
   }
+
   .accordion .tabs {
     border-radius: 22px 10px 10px 10px;
   }
+
   .accordion .tabs .tab-header::before {
     width: 50px;
   }
+
   .footer-links {
     max-width: 300px;
   }
@@ -734,6 +819,7 @@
     height: auto;
     display: grid;
   }
+
   .accordion .tabs .tab-content {
     display: none;
   }
@@ -741,6 +827,7 @@
   .accordion .tabs.tabs.is-active .tab-content {
     display: block;
   }
+
   .accordion .tabs .tab-header {
     padding-top: 0;
     position: relative;
@@ -749,6 +836,7 @@
     flex-direction: row;
     align-items: center;
   }
+
   .accordion .tabs .tab-header::before {
     width: 1px;
     height: 100%;
@@ -757,18 +845,21 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  .accordion .tabs .tab-header .text > div {
+
+  .accordion .tabs .tab-header .text>div {
     writing-mode: unset;
     text-orientation: unset;
     font-size: 16px;
     line-height: normal;
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 20px;
     writing-mode: vertical-lr;
     text-orientation: unset;
     transform: rotate(-180deg);
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 20px;
     writing-mode: vertical-lr;
@@ -776,23 +867,29 @@
     transform: rotate(-180deg);
     line-height: 20px;
   }
+
   .accordion .tabs {
     padding: 20px 16px 20px 26px;
   }
+
   .accordion .tabs .tab-content .tab-img {
     position: absolute;
     text-align: center;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper {
     position: relative;
   }
+
   .accordion .tabs .tab-content .tab-img img {
     width: 82%;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper h2 {
     font-size: 18px;
     line-height: 26px;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper ul {
     font-size: 15px;
     line-height: 23.67px;
@@ -800,9 +897,11 @@
     margin-bottom: 40px;
     opacity: 0.8;
   }
+
   .accordion .tabs.is-active {
     padding: 32px 30px 45px 30px;
   }
+
   .piechart {
     width: 350px;
     height: 180px;
@@ -813,116 +912,143 @@
   .footer-links {
     max-width: 300px;
   }
+
   .roadmap-txt .roadmap-subheading {
     font-size: 16px;
     margin-bottom: 14px;
     line-height: 25px;
   }
+
   .roadmap-txt h2 {
     font-size: 22px;
     line-height: 28px;
   }
+
   .roadmap-txt {
     text-align: center;
     margin: 0 0 0 0;
   }
+
   .roadmap-blue-txt h2 {
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 12px;
   }
+
   .roadmap-blue-txt p {
     font-size: 14px;
     line-height: 28px;
   }
+
   .custom-container {
     width: calc(100% - 50px);
   }
+
   .roadmap-titles p {
     font-size: 20px;
     line-height: 25px;
   }
+
   .roadmap-titles h2 {
     font-size: 20px;
     line-height: 26px;
     margin-bottom: 0px;
   }
+
   .roadmap-blue-txt {
     padding: 20px 12px 15px 12px;
     border-radius: 16px;
   }
+
   .roadmap-blue-txt p {
     font-size: 14px;
     line-height: 22px;
     opacity: 0.7;
   }
+
   .roadmap-content {
     padding-left: 30px;
   }
+
   .roadmap-content {
     gap: 12px;
   }
+
   .roadmap-content .roadmap-txt-circle {
     left: -6px;
     transform: translate(0, -50%);
   }
+
   .roadmap-main-bx {
     padding-block: 40px;
     gap: 30px;
   }
+
   .ecosystem-main-txt .ecosystem-heading h2 {
     font-size: 22px;
     line-height: 28px;
   }
+
   .ecosystem-main-txt .ecosystem-psg p {
     font-size: 14px;
     line-height: 22px;
     opacity: 0.7;
   }
+
   .ecosystem-main-txt .ecosystem-heading span.subheading {
     font-size: 16px;
   }
+
   .footer-row {
     flex-wrap: wrap;
     gap: 38px;
   }
+
   .footer-description img {
     max-width: 120px;
     width: 100%;
     margin-bottom: 28px;
   }
+
   .footer-description {
     max-width: 400px;
     width: 100%;
     text-align: center;
   }
+
   .footer-links {
     max-width: 240px;
     margin-inline: auto;
   }
+
   .footer-links .footer-href h2 {
     font-size: 16px;
     line-height: 18.33px;
     margin-bottom: 20px;
   }
+
   .footer-links .footer-href ul li a {
     font-size: 15px;
     font-weight: 600;
     line-height: 22.18px;
   }
+
   .copyright {
     font-size: 12px;
     margin-top: 35px;
   }
+
   .footer {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 100% 22%;
   }
+
   .accordion {
     height: auto;
     display: grid;
   }
+
   .accordion .tabs .tab-content {
     display: none;
   }
@@ -930,6 +1056,7 @@
   .accordion .tabs.tabs.is-active .tab-content {
     display: block;
   }
+
   .accordion .tabs .tab-header {
     padding-top: 0;
     position: relative;
@@ -938,6 +1065,7 @@
     flex-direction: row;
     align-items: center;
   }
+
   .accordion .tabs .tab-header::before {
     width: 1px;
     height: 100%;
@@ -946,18 +1074,21 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  .accordion .tabs .tab-header .text > div {
+
+  .accordion .tabs .tab-header .text>div {
     writing-mode: unset;
     text-orientation: unset;
     font-size: 16px;
     line-height: normal;
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 20px;
     writing-mode: vertical-lr;
     text-orientation: unset;
     transform: rotate(-180deg);
   }
+
   .accordion .tabs .tab-header .accordian-numbers {
     font-size: 20px;
     writing-mode: vertical-lr;
@@ -965,23 +1096,29 @@
     transform: rotate(-180deg);
     line-height: 20px;
   }
+
   .accordion .tabs {
     padding: 20px 16px 20px 26px;
   }
+
   .accordion .tabs .tab-content .tab-img {
     position: absolute;
     text-align: center;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper {
     position: relative;
   }
+
   .accordion .tabs .tab-content .tab-img img {
     width: 82%;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper h2 {
     font-size: 18px;
     line-height: 26px;
   }
+
   .accordion .tabs.is-active .tab-content .tab-content-wrapper ul {
     font-size: 15px;
     line-height: 23.67px;
@@ -989,14 +1126,21 @@
     margin-bottom: 40px;
     opacity: 0.8;
   }
+
   .accordion .tabs.is-active {
     padding: 32px 30px 45px 30px;
   }
+
   .roadmap {
     padding-block: 40px 10px;
   }
+
   .piechart {
     width: 260px;
     height: 150px;
+  }
+
+  .wallet-adapter-button {
+    font-size: 14px;
   }
 }

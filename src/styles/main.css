@@ -37,6 +37,18 @@ header ul li a.nav-link {
   border-color: #000;
 }
 
+.btn_line {
+  line-height: 0 !important;
+}
+
+.wallet-adapter-button {
+  height: auto;
+  line-height: normal;
+  text-transform: uppercase;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 18px;
+}
+
 #header {
   position: fixed;
   top: 0;
@@ -218,8 +230,8 @@ section.marquee-line {
   transform-box: fill-box;
   width: 100%;
   left: 0;
-  top: -35px;
-  z-index: 1;
+  top: 28px;
+  z-index: -1;
   box-shadow: 0 20px 0 0 rgb(255 255 160 / 20%);
 }
 
@@ -935,7 +947,7 @@ img.bonus-img4 {
   }
 
   .banner-img {
-    padding-bottom: 300px;
+    padding-bottom: 160px;
   }
 }
 
