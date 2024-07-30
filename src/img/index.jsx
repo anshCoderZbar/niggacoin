@@ -1,6 +1,7 @@
 import logo from "../img/assets/logo.svg";
 import minLogo from "../img/assets/min-logo.svg";
 import banner from "../img/assets/banner-img.png";
+import bubble from "../img/assets/bubble.png";
 import sol from "../img/assets/sol-icon.png";
 import niggacoin from "../img/assets/niggaicon.png";
 import niggacoinBtn from "../img/assets/niggacoin.png";
@@ -32,6 +33,7 @@ export const ASSETS = {
   MIN_LOGO: minLogo,
   BANNER_IMG: banner,
   SOL: sol,
+  BUBBLE: bubble,
   NIGGA_COIN: niggacoin,
   STAR: star,
   ASSETS_IMG: aboutImg,

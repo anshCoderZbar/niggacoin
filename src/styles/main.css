@@ -209,6 +209,50 @@ input::-webkit-inner-spin-button {
   border-radius: 25px;
 }
 
+.bubble_body {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble_body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.bubble_text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.bubble_text h3 {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.bubble_text p {
+  font-weight: 700;
+  color: #000;
+  font-size: 18px;
+  margin: 0;
+  line-height: 22px;
+}
+
+.text_red {
+  color: #fb0001 !important;
+  font-size: 20px !important;
+  white-space: nowrap !important;
+}
+
+
 /* Marquee Line Css */
 section.marquee-line {
   height: 115px;
@@ -1018,6 +1062,11 @@ img.bonus-img4 {
   .banner-img {
     padding-bottom: 160px;
   }
+
+
+  .bubble_body img {
+    max-width: 210px;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -1086,6 +1135,15 @@ img.bonus-img4 {
 
   .header-btn .btn {
     margin-right: 6px;
+  }
+
+  .bubble_body img {
+    max-width: 183px;
+  }
+
+  .bubble_text h3 {
+    font-size: 22px;
+    margin-bottom: 13px;
   }
 }
 
@@ -1205,6 +1263,19 @@ img.bonus-img4 {
     padding: 0;
   }
 
+  .bubble_body {
+    right: 0%;
+    left: 0;
+    top: 21%;
+    transform: none;
+    justify-content: end;
+  }
+
+  .bubble_body img {
+    max-width: 200px;
+    height: auto;
+  }
+
   img.left-flower,
   img.right-flower {
     display: none;
@@ -1319,6 +1390,29 @@ img.bonus-img4 {
 
   .stage-section h4 {
     font-size: 16px;
+  }
+
+
+  .bubble_body {
+    left: 11%;
+    top: 26%;
+  }
+
+  .bubble_text h3 {
+    font-size: 20px;
+    margin-bottom: 7px;
+  }
+
+  .bubble_text p {
+    line-height: 17px;
+  }
+
+  .text_red {
+    font-size: 16px !important;
+  }
+
+  .bubble_body img {
+    max-width: 160px;
   }
 
   .stage-section p {
@@ -1514,5 +1608,35 @@ img.bonus-img4 {
 
   .token-numb {
     height: 50px;
+  }
+}
+
+
+@media (max-width: 630px) {
+
+  .banner-left-img {
+    text-align: center;
+    max-width: 398px;
+    margin: auto;
+  }
+
+  .bubble_body {
+    left: 5%;
+    left: 8%;
+    top: 16%;
+  }
+}
+
+@media (max-width: 575px) {
+  .banner-left-img {
+    max-width: 302px;
+  }
+
+  .banner-form {
+    margin-top: -151px;
+  }
+
+  .bubble_body {
+    top: 13%;
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ASSETS } from "../../img";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export const Header = () => {
   return (
@@ -64,13 +65,13 @@ export const Header = () => {
                   </li>
                 </ul>
                 <div className="header-btn">
-                  <a
-                    href="https://wiki.niggacoin.vip"
-                    target="_blank"
-                    className="btn btn-primary"
-                  >
-                    Nigga Wiki
-                  </a>
+                  <div className="btn btn-primary btn_line">
+                    <WalletMultiButton
+                      style={{
+                        backgroundColor: "transparent",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

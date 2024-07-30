@@ -38,17 +38,24 @@ export const Banner = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const btn = document.querySelectorAll(".wallet-adapter-button");
+    btn.forEach((elm) => {
+      elm.innerHTML = "Connect Wallet";
+    });
+  }, []);
+
   return (
     <>
       <section className="banner-img">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-between position-relative">
             <div className="col-lg-5">
               <div className="banner-left-img">
                 <img src={ASSETS.BANNER_IMG} alt="banner" />
               </div>
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-6">
               <div className="banner-form">
                 <div className="main-heading">
                   <h2 className="text-center mb-4 text-uppercase">
@@ -182,6 +189,21 @@ export const Banner = () => {
                       </a>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className="bubble_body">
+              <div
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+                className="position-relative "
+              >
+                <img src={ASSETS.BUBBLE} alt="bubble" />
+                <div className="bubble_text">
+                  <h3>Round 1:</h3>
+                  <p>1 Sol</p>
+                  <p>=</p>
+                  <p className="text_red">3,050,847 $NGG</p>
                 </div>
               </div>
             </div>
