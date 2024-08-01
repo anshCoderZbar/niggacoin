@@ -4,7 +4,7 @@ import {
   About,
   Banner,
   NiggaEcosystem,
-  // Presale,
+  Presale,
   SocialSection,
   Timeline,
 } from "../components";
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Banner />
       <About />
-      {/* <Presale /> */}
+      <Presale />
       <Timeline />
       <NiggaEcosystem />
       <SocialSection />
