@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ASSETS } from "../../img";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
@@ -38,12 +38,12 @@ export const Banner = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const btn = document.querySelectorAll(".wallet-adapter-button");
-    btn.forEach((elm) => {
-      elm.innerHTML = "Connect Wallet";
-    });
-  }, []);
+  // useEffect(() => {
+  //   const btn = document.querySelectorAll(".wallet-adapter-button");
+  //   btn.forEach((elm) => {
+  //     elm.innerHTML = "Connect Wallet";
+  //   });
+  // }, []);
 
   return (
     <>
