@@ -48,3 +48,19 @@ a {
 img {
   max-width: 100%;
 }
+
+
+.swiper-pagination {
+  position: relative;
+  margin-top: 35px;
+}
+
+.swiper-pagination-bullet {
+  height: 10px;
+  width: 10px;
+  background: rgba(251, 0, 1, 0.5);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #FB0001;
+}

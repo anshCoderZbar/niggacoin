@@ -6,6 +6,10 @@ import "swiper/css";
 import { ASSETS } from "../../img";
 import Countdown from "react-countdown";
 
+import { Pagination } from "swiper/modules";
+
+import "swiper/css/pagination";
+
 export const Rounds = () => {
   const { publicKey } = useWallet();
 
@@ -87,8 +91,10 @@ export const Rounds = () => {
           </div>
         </div>
         <Swiper
+          modules={[Pagination]}
           spaceBetween={10}
           slidesPerView={1}
+          pagination={{ clickable: true }}
           breakpoints={{
             640: {
               slidesPerView: 2,
@@ -152,7 +158,7 @@ export const Rounds = () => {
         {new Date() < cutoffDate && (
           <div className="position-relative">
             <div
-              className="progress mt-5"
+              className="progress mt-3"
               role="progressbar"
               aria-label="Animated striped example"
             >
