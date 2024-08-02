@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ASSETS } from "../../img";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { allRounds } from "../../mock/Rounds";
 
 export const Banner = () => {
   const [time, setTime] = useState({
@@ -186,19 +187,33 @@ export const Banner = () => {
               </div>
             </div>
             <div className="bubble_body">
-              <div
-                data-aos="zoom-in"
-                data-aos-duration="1000"
-                className="position-relative "
-              >
-                <img src={ASSETS.BUBBLE} alt="bubble" />
-                <div className="bubble_text">
-                  <h3>Round 1:</h3>
-                  <p>1 Sol</p>
-                  <p>=</p>
-                  <p className="text_red">3,050,847 $NGG</p>
-                </div>
-              </div>
+              {allRounds?.map((elm) => {
+                const currentDate = new Date();
+                let status = "Upcoming";
+                if (currentDate >= elm.active && currentDate <= elm.expire) {
+                  status = "Active";
+                } else if (currentDate > elm.expire) {
+                  status = "Closed";
+                }
+                return (
+                  currentDate >= elm.active &&
+                  currentDate <= elm.expire && (
+                    <div
+                      data-aos="zoom-in"
+                      data-aos-duration="1000"
+                      className="position-relative "
+                    >
+                      <img src={ASSETS.BUBBLE} alt="bubble" />
+                      <div className="bubble_text">
+                        <h3>{elm.rounds}</h3>
+                        <p>1 Sol</p>
+                        <p>=</p>
+                        <p className="text_red">{elm.value}</p>
+                      </div>
+                    </div>
+                  )
+                );
+              })}
             </div>
           </div>
         </div>
