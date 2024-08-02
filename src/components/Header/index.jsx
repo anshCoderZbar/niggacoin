@@ -13,7 +13,7 @@ export const Header = () => {
               <img src={ASSETS.LOGO} alt="Logo" />
               <h4 className="ms-4 fw-bold">$NGG</h4>
               <img
-                className="d-lg-none d-block"
+                className="d-lg-none d-block min_lgo"
                 src={ASSETS.MIN_LOGO}
                 alt="Logo"
               />

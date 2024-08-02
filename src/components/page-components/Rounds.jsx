@@ -9,6 +9,8 @@ import Countdown from "react-countdown";
 export const Rounds = () => {
   const { publicKey } = useWallet();
 
+  const cutoffDate = new Date("2024-08-14T00:00:00");
+
   // Function to get time remaining until next midnight
   const getTimeUntilMidnight = () => {
     const now = new Date();
@@ -84,7 +86,24 @@ export const Rounds = () => {
             </div>
           </div>
         </div>
-        <Swiper spaceBetween={10} slidesPerView={5}>
+        <Swiper
+          spaceBetween={10}
+          slidesPerView={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1100: {
+              slidesPerView: 3,
+            },
+            1400: {
+              slidesPerView: 4,
+            },
+            1500: {
+              slidesPerView: 5,
+            },
+          }}
+        >
           {allRounds?.map((round) => {
             const currentDate = new Date();
             let status = "Upcoming"; // Default status
@@ -130,7 +149,7 @@ export const Rounds = () => {
             );
           })}
         </Swiper>
-        {
+        {new Date() < cutoffDate && (
           <div className="position-relative">
             <div
               className="progress mt-5"
@@ -142,15 +161,19 @@ export const Rounds = () => {
                 style={{ width: `${progressWidth}%` }}
               ></div>
             </div>
-            <div className="countdown-timer mt-3 text-center">
-              <h4>Time Remaning:</h4>
+            <div
+              className={`countdown-timer mt-3 text-center ${
+                progressWidth > 56 ? "text-white" : "text-black"
+              }`}
+            >
+              <p>Time Remaning:</p>
               <Countdown
                 date={Date.now() + countdownDuration}
                 renderer={renderer}
               />
             </div>
           </div>
-        }
+        )}
       </div>
     </section>
   );
