@@ -9,6 +9,7 @@ export const Banner = () => {
   const { publicKey } = useWallet();
 
   const cutoffDate = new Date("2024-08-14T00:00:00");
+  const [progressWidth, setProgressWidth] = useState(100); // Start with full width
 
   // Function to get time remaining until next midnight
   const getTimeUntilMidnight = () => {
@@ -26,6 +27,7 @@ export const Banner = () => {
     const interval = setInterval(() => {
       const remainingTime = getTimeUntilMidnight();
       setCountdownDuration(remainingTime);
+      setProgressWidth((remainingTime / (24 * 60 * 60 * 1000)) * 100); // 24 hours in milliseconds
     }, 1000);
 
     return () => clearInterval(interval);
@@ -62,12 +64,25 @@ export const Banner = () => {
                 </div>
 
                 {new Date() < cutoffDate && (
-                  <Countdown
-                    date={Date.now() + countdownDuration}
-                    renderer={renderer}
-                  />
+                  <>
+                    <Countdown
+                      date={Date.now() + countdownDuration}
+                      renderer={renderer}
+                    />
+
+                    <div
+                      className="progress my-4"
+                      role="progressbar"
+                      aria-label="Animated striped example"
+                    >
+                      <div
+                        className="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                        style={{ width: `${progressWidth}%` }}
+                      ></div>
+                    </div>
+                  </>
                 )}
-                <div className="container">
+                {/* <div className="container">
                   <div className="row mb-2">
                     <div className="col-lg-12">
                       <div className="cstm-range-slider">
@@ -87,7 +102,7 @@ export const Banner = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <form action="">
                   <div className="row mb-4">
                     <div className="col-lg-7">
