@@ -138,10 +138,19 @@ export const Rounds = () => {
                     }}
                     className="d-flex align-items-center justify-content-center"
                   >
-                    {/* <img className="me-3" src={ASSETS.BONUS_IMG} alt="" /> */}
                     <h3>Duration 24 hours</h3>
                   </div>
-                  <h4>1 Sol = {round.value}</h4>
+                  <h4 className="d-flex justify-content-center gap-2 align-items-center">
+                    <span>1 Sol =</span>
+                    <span>
+                      <img
+                        className="round_min"
+                        src={ASSETS.MIN_LOGO}
+                        alt="Logo"
+                      />{" "}
+                      {round.value}
+                    </span>
+                  </h4>
                   <span className={`active-badge ${status.toLowerCase()}`}>
                     {status}
                   </span>

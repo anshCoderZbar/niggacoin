@@ -3,41 +3,45 @@ import { ASSETS } from "../../img";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { allRounds } from "../../mock/Rounds";
+import Countdown from "react-countdown";
 
 export const Banner = () => {
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
   const { publicKey } = useWallet();
 
+  const cutoffDate = new Date("2024-08-14T00:00:00");
+
+  // Function to get time remaining until next midnight
+  const getTimeUntilMidnight = () => {
+    const now = new Date();
+    const endOfDay = new Date(now);
+    endOfDay.setHours(24, 0, 0, 0); // Set to midnight of the next day
+    return endOfDay - now;
+  };
+
+  const [countdownDuration, setCountdownDuration] =
+    useState(getTimeUntilMidnight);
+
   useEffect(() => {
-    const updateTimer = () => {
-      const future = Date.parse("August 13, 2024 11:30:00");
-      const now = new Date();
-      const diff = future - now;
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const mins = Math.floor(diff / (1000 * 60));
-      const secs = Math.floor(diff / 1000);
-
-      setTime({
-        days,
-        hours: hours - days * 24,
-        minutes: mins - hours * 60,
-        seconds: secs - mins * 60,
-      });
-    };
-
-    updateTimer();
-    const interval = setInterval(updateTimer, 1000);
+    // Update countdown duration and progress width every second
+    const interval = setInterval(() => {
+      const remainingTime = getTimeUntilMidnight();
+      setCountdownDuration(remainingTime);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
+
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return <span>Time's up!</span>;
+    } else {
+      return (
+        <div id="timer">
+          <div>{hours} h</div> <div>{minutes}m</div> <div>{seconds}s</div>
+        </div>
+      );
+    }
+  };
 
   return (
     <>
@@ -56,24 +60,13 @@ export const Banner = () => {
                     Until Next Round
                   </h2>
                 </div>
-                <div id="timer">
-                  <div>
-                    {time.days}
-                    <span>days</span>
-                  </div>
-                  <div>
-                    {time.hours}
-                    <span>hours</span>
-                  </div>
-                  <div>
-                    {time.minutes}
-                    <span>minutes</span>
-                  </div>
-                  <div>
-                    {time.seconds}
-                    <span>seconds</span>
-                  </div>
-                </div>
+
+                {new Date() < cutoffDate && (
+                  <Countdown
+                    date={Date.now() + countdownDuration}
+                    renderer={renderer}
+                  />
+                )}
                 <div className="container">
                   <div className="row mb-2">
                     <div className="col-lg-12">
@@ -187,7 +180,7 @@ export const Banner = () => {
               </div>
             </div>
             <div className="bubble_body">
-              {allRounds?.map((elm) => {
+              {allRounds?.map((elm, i) => {
                 const currentDate = new Date();
                 let status = "Upcoming";
                 if (currentDate >= elm.active && currentDate <= elm.expire) {
@@ -199,6 +192,7 @@ export const Banner = () => {
                   currentDate >= elm.active &&
                   currentDate <= elm.expire && (
                     <div
+                      key={i}
                       data-aos="zoom-in"
                       data-aos-duration="1000"
                       className="position-relative "
