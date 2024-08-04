@@ -15,25 +15,21 @@ export const Rounds = () => {
 
   const cutoffDate = new Date("2024-08-14T00:00:00");
 
-  // Function to get time remaining until next midnight
-  const getTimeUntilMidnight = () => {
+  // Function to get time elapsed since midnight
+  const getElapsedTimeSinceMidnight = () => {
     const now = new Date();
-    const endOfDay = new Date(now);
-    endOfDay.setHours(24, 0, 0, 0); // Set to midnight of the next day
-    return endOfDay - now;
+    const startOfDay = new Date(now);
+    startOfDay.setHours(0, 0, 0, 0); // Set to midnight of the current day
+    return now - startOfDay;
   };
 
-  const [countdownDuration, setCountdownDuration] =
-    useState(getTimeUntilMidnight);
-
-  const [progressWidth, setProgressWidth] = useState(100); // Start with full width
+  const [elapsedTime, setElapsedTime] = useState(getElapsedTimeSinceMidnight());
 
   useEffect(() => {
-    // Update countdown duration and progress width every second
+    // Update elapsed time and progress width every second
     const interval = setInterval(() => {
-      const remainingTime = getTimeUntilMidnight();
-      setCountdownDuration(remainingTime);
-      setProgressWidth((remainingTime / (24 * 60 * 60 * 1000)) * 100); // 24 hours in milliseconds
+      const elapsedTime = getElapsedTimeSinceMidnight();
+      setElapsedTime(elapsedTime);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -51,6 +47,9 @@ export const Rounds = () => {
       );
     }
   };
+
+  // Calculate progress width based on elapsed time since midnight
+  const progressWidth = (elapsedTime / (24 * 60 * 60 * 1000)) * 100; // 24 hours in milliseconds
 
   return (
     <section className="bonus-section section-padding">
@@ -181,9 +180,9 @@ export const Rounds = () => {
                 progressWidth > 56 ? "text-white" : "text-black"
               }`}
             >
-              <p>Time Remaning:</p>
+              <p>Time Remaining:</p>
               <Countdown
-                date={Date.now() + countdownDuration}
+                date={Date.now() + (24 * 60 * 60 * 1000 - elapsedTime)}
                 renderer={renderer}
               />
             </div>

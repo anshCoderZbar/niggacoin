@@ -9,7 +9,7 @@ export const Banner = () => {
   const { publicKey } = useWallet();
 
   const cutoffDate = new Date("2024-08-14T00:00:00");
-  const [progressWidth, setProgressWidth] = useState(100); // Start with full width
+  const [progressWidth, setProgressWidth] = useState(0); // Start with empty width
 
   // Function to get time remaining until next midnight
   const getTimeUntilMidnight = () => {
@@ -26,8 +26,9 @@ export const Banner = () => {
     // Update countdown duration and progress width every second
     const interval = setInterval(() => {
       const remainingTime = getTimeUntilMidnight();
+      const totalTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
       setCountdownDuration(remainingTime);
-      setProgressWidth((remainingTime / (24 * 60 * 60 * 1000)) * 100); // 24 hours in milliseconds
+      setProgressWidth(((totalTime - remainingTime) / totalTime) * 100);
     }, 1000);
 
     return () => clearInterval(interval);
@@ -82,27 +83,7 @@ export const Banner = () => {
                     </div>
                   </>
                 )}
-                {/* <div className="container">
-                  <div className="row mb-2">
-                    <div className="col-lg-12">
-                      <div className="cstm-range-slider">
-                        <div className="range-slider">
-                          <div id="tooltip" style={{ left: "calc(0% + 16px)" }}>
-                            <span>78%</span>
-                          </div>
-                          <input
-                            id="range"
-                            type="range"
-                            step="10"
-                            defaultValue="200"
-                            min="568717"
-                            max="650000"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
+
                 <form action="">
                   <div className="row mb-4">
                     <div className="col-lg-7">
