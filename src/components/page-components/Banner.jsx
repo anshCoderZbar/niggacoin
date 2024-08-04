@@ -15,7 +15,7 @@ export const Banner = () => {
 
   useEffect(() => {
     const updateTimer = () => {
-      const future = Date.parse("July 31, 2024 11:30:00");
+      const future = Date.parse("August 13, 2024 11:30:00");
       const now = new Date();
       const diff = future - now;
 
@@ -37,13 +37,6 @@ export const Banner = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  // useEffect(() => {
-  //   const btn = document.querySelectorAll(".wallet-adapter-button");
-  //   btn.forEach((elm) => {
-  //     elm.innerHTML = "Connect Wallet";
-  //   });
-  // }, []);
 
   return (
     <>

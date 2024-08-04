@@ -1,9 +1,8 @@
 import React from "react";
 import { ASSETS } from "../../img";
-import { useWallet } from "@solana/wallet-adapter-react";
+import { Rounds } from "./Rounds";
 
 export const Presale = () => {
-  const { publicKey } = useWallet();
   return (
     <>
       <section className="presale section-padding" id="presale">
@@ -208,165 +207,92 @@ export const Presale = () => {
           </div>
         </div>
       </section>
-      <section className="bonus-section section-padding">
-        {/* <div className="bonus-imgs">
-              <img data-aos="zoom-in" data-aos-duration="1000" src={ASSETS.BONUS_IMG1} alt="" className="bonus-img1">
-              <img data-aos="zoom-in" data-aos-duration="1000" src={ASSETS.BONUS_IMG2} alt="" className="bonus-img2">
-              <img data-aos="zoom-in" data-aos-duration="1000" src={ASSETS.BONUS_IMG3} alt="" className="bonus-img3">
-              <img data-aos="zoom-in" data-aos-duration="1000" src={ASSETS.BONUS_IMG4} alt="" className="bonus-img4">
-          </div> */}
-        <div className="container">
-          <div className="row mb-5">
-            <div className="col-12">
-              <div className="main-heading text-center">
-                <h2
-                  data-aos="fade-down"
-                  data-aos-duration="1000"
-                  className="mb-4"
-                >
-                  PRESALE BONUSES ON EACH ROUND!
-                </h2>
-                <p data-aos="fade-down" data-aos-duration="1000">
-                  Unallocated round coins - WILL BE BURNED!
-                  <br />
-                  Maximum Investment: 200 SOL | Minimum Investment: 0.1 SOL
-                </p>
-              </div>
-              <div
-                className="Eos-txt-bx"
-                data-aos="zoom-in"
-                data-aos-duration="1500"
-                data-aos-once="true"
-              >
-                <div className="token-address-box">
-                  <div className="token-numb">
-                    <input type="text" defaultValue={publicKey} readOnly />
-                  </div>
-                  <button
-                    onClick={() => navigator.clipboard.writeText(publicKey)}
-                  >
-                    Copy
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row sale-row mb-5">
-            <div
-              className="col position-relative"
-              data-aos="fade-down"
-              data-aos-duration="1000"
-            >
-              <div className="bonus-box sold-out-box">
-                <span className="badge">Round 1</span>
-                <div className="d-flex align-items-center justify-content-start">
-                  <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
-                  <h3>+35%</h3>
-                </div>
-                <h4>9,999 SOL</h4>
-                <span className="active-badge">Closed</span>
-              </div>
-              <div className="sold-out">
-                <img src={ASSETS.SOLD_OUT_IMG} alt="Sold Out" />
-              </div>
-            </div>
-            <div
-              className="col position-relative"
-              data-aos="fade-down"
-              data-aos-duration="1000"
-            >
-              <div className="bonus-box">
-                <span className="badge">Round 2</span>
-                <div className="d-flex align-items-center justify-content-start">
-                  <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
-                  <h3>+25%</h3>
-                </div>
-                <h4>19,999 SOL</h4>
-                <span className="active-badge active-badge-txt">Active</span>
-              </div>
-            </div>
-            <div
-              className="col position-relative"
-              data-aos="fade-down"
-              data-aos-duration="1000"
-            >
-              <div className="bonus-box sold-out-box">
-                <span className="badge">Round 3</span>
-                <div className="d-flex align-items-center justify-content-start">
-                  <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
-                  <h3>+15%</h3>
-                </div>
-                <h4>29,999 SOL</h4>
-                <span className="active-badge">Upcoming</span>
-              </div>
-              <div className="sold-out"></div>
-            </div>
-            <div
-              className="col position-relative"
-              data-aos="fade-down"
-              data-aos-duration="1000"
-            >
-              <div className="bonus-box sold-out-box">
-                <span className="badge">Round 4</span>
-                <div className="d-flex align-items-center justify-content-start">
-                  <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
-                  <h3>+10%</h3>
-                </div>
-                <h4>39,999 SOL</h4>
-                <span className="active-badge">Upcoming</span>
-              </div>
-              <div className="sold-out"></div>
-            </div>
-            <div
-              className="col position-relative"
-              data-aos="fade-down"
-              data-aos-duration="1000"
-            >
-              <div className="bonus-box sold-out-box">
-                <span className="badge">Round 5</span>
-                <div className="d-flex align-items-center justify-content-start">
-                  <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
-                  <h3>+5%</h3>
-                </div>
-                <h4>50,000 SOL</h4>
-                <span className="active-badge">Upcoming</span>
-              </div>
-              <div className="sold-out"></div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-10 mx-auto">
-              <div className="cstm-range-slider">
-                <div className="range-slider">
-                  <div id="tooltip"></div>
-                  <input
-                    id="range"
-                    type="range"
-                    step="10"
-                    defaultValuez="200"
-                    min="500"
-                    max="5500"
-                  />
-                </div>
-              </div>
-              {/* <div className="stage-section text-center">
-                          <h4 className="mb-4">MAXIMUM OF 48 HOURS EACH STAGE</h4>
-                          <ul>
-                              <li style="background-color: #FB0001;"></li>
-                              <li></li>
-                              <li></li>
-                              <li></li>
-                              <li></li>
-                          </ul>
-                          <div className="d-flex align-items-center justify-content-between mt-3">
-                              <p>0 SOL</p>
-                              <p>50,000 SOL</p>
-                          </div>
-                      </div> */}
-            </div>
-          </div>
-        </div>
-      </section>
+      <Rounds />
     </>
   );
 };
+
+{
+  /* <div
+  className="col position-relative"
+  data-aos="fade-down"
+  data-aos-duration="1000"
+>
+  <div className="bonus-box">
+    <span className="badge">Round 2</span>
+    <div className="d-flex align-items-center justify-content-start">
+      <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
+      <h3>+25%</h3>
+    </div>
+    <h4>19,999 SOL</h4>
+    <span className="active-badge active-badge-txt">Active</span>
+  </div>
+</div>
+<div
+  className="col position-relative"
+  data-aos="fade-down"
+  data-aos-duration="1000"
+>
+  <div className="bonus-box sold-out-box">
+    <span className="badge">Round 3</span>
+    <div className="d-flex align-items-center justify-content-start">
+      <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
+      <h3>+15%</h3>
+    </div>
+    <h4>29,999 SOL</h4>
+    <span className="active-badge">Upcoming</span>
+  </div>
+  <div className="sold-out"></div>
+</div>
+<div
+  className="col position-relative"
+  data-aos="fade-down"
+  data-aos-duration="1000"
+>
+  <div className="bonus-box sold-out-box">
+    <span className="badge">Round 4</span>
+    <div className="d-flex align-items-center justify-content-start">
+      <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
+      <h3>+10%</h3>
+    </div>
+    <h4>39,999 SOL</h4>
+    <span className="active-badge">Upcoming</span>
+  </div>
+  <div className="sold-out"></div>
+</div>
+<div
+  className="col position-relative"
+  data-aos="fade-down"
+  data-aos-duration="1000"
+>
+  <div className="bonus-box sold-out-box">
+    <span className="badge">Round 5</span>
+    <div className="d-flex align-items-center justify-content-start">
+      <img className="me-3" src={ASSETS.BONUS_IMG} alt="" />
+      <h3>+5%</h3>
+    </div>
+    <h4>50,000 SOL</h4>
+    <span className="active-badge">Upcoming</span>
+  </div>
+  <div className="sold-out"></div>
+</div>*/
+}
+{
+  /* <div className="row">
+  <div className="col-lg-10 mx-auto">
+    <div className="cstm-range-slider">
+      <div className="range-slider">
+        <div id="tooltip"></div>
+        <input
+          id="range"
+          type="range"
+          step="10"
+          defaultValuez="200"
+          min="500"
+          max="5500"
+        />
+      </div>
+    </div>
+  </div>
+</div> */
+}

@@ -107,21 +107,11 @@ div#timer div span {
   display: block;
 }
 
-.progress-bar-striped {
-  background: rgb(255, 135, 98);
-  background: linear-gradient(90deg,
-      rgba(255, 135, 98, 1) 35%,
-      rgba(251, 0, 1, 1) 62%);
-}
-
 .banner-form p {
   color: #000;
   font-weight: 500;
 }
 
-.progress {
-  background: #ffcfcf;
-}
 
 label {
   font-weight: bold;
@@ -571,19 +561,25 @@ img.left-flower {
 }
 
 .bonus-box .badge {
-  background: #010101;
+  background: white;
   width: max-content;
-  color: #fff;
+  color: #000;
   font-size: 16px;
   border-radius: 10px;
   position: absolute;
+  z-index: 9;
   right: 0;
   left: 0;
   top: -18px;
   margin: 0 auto;
   text-transform: uppercase;
   padding: 10px 30px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
+
+/* .swiper {
+  overflow: visible;
+} */
 
 .bonus-box .active-badge {
   background: #fff;
@@ -596,10 +592,14 @@ img.left-flower {
   left: 0;
   bottom: -20px;
   margin: 0 auto;
-  text-transform: uppercase;
+  text-transform: capitalize;
   padding: 10px 30px;
   font-weight: 600;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
 }
+
+
 
 /* .bonus-box .active-badge.active-badge-txt {
     -webkit-background-clip: unset;
@@ -757,9 +757,9 @@ img.left-flower {
 } */
 
 .bonus-box div {
-  padding: 10px;
+  padding: 15px 10px;
   background: #ffffa0;
-  border-radius: 15px;
+  border-radius: 12px;
   margin-top: 40px;
   background: linear-gradient(161deg, #ff8762, #fb0001);
 }
@@ -773,13 +773,13 @@ img.left-flower {
 }
 
 .bonus-box h3 {
-  font-size: 38px;
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
 }
 
 .bonus-box h4 {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 700;
   color: #000;
   margin-top: 25px;
@@ -1024,7 +1024,7 @@ img.bonus-img4 {
   }
 
   .bonus-box h3 {
-    font-size: 22px;
+    font-size: 18px;
   }
 
   .bonus-box img {
@@ -1032,7 +1032,7 @@ img.bonus-img4 {
   }
 
   .bonus-box h4 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .main-heading h2 {
@@ -1497,7 +1497,7 @@ img.bonus-img4 {
   }
 
   .bonus-box h3 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .bonus-box img {
