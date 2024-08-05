@@ -5,35 +5,51 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { ASSETS } from "../../img";
 import Countdown from "react-countdown";
-
 import { Pagination } from "swiper/modules";
-
 import "swiper/css/pagination";
 
 export const Rounds = () => {
   const { publicKey } = useWallet();
+  const cutoffDate = new Date("2024-08-17T00:00:00");
 
-  const cutoffDate = new Date("2024-08-14T00:00:00");
+  const [serverTime, setServerTime] = useState(null);
 
-  // Function to get time elapsed since midnight
+  useEffect(() => {
+    // Fetch server time from an external API
+    const fetchServerTime = async () => {
+      try {
+        const response = await fetch(
+          "https://worldtimeapi.org/api/timezone/Etc/UTC"
+        );
+        const data = await response.json();
+        setServerTime(new Date(data.utc_datetime).getTime());
+      } catch (error) {
+        console.error("Failed to fetch server time:", error);
+      }
+    };
+
+    fetchServerTime();
+  }, []);
+
+  // Function to get time elapsed since midnight using server time
   const getElapsedTimeSinceMidnight = () => {
-    const now = new Date();
+    if (!serverTime) return 0;
+    const now = new Date(serverTime);
     const startOfDay = new Date(now);
-    startOfDay.setHours(0, 0, 0, 0); // Set to midnight of the current day
+    startOfDay.setUTCHours(0, 0, 0, 0); // Set to midnight of the current day UTC
     return now - startOfDay;
   };
 
   const [elapsedTime, setElapsedTime] = useState(getElapsedTimeSinceMidnight());
 
   useEffect(() => {
-    // Update elapsed time and progress width every second
+    // Update elapsed time every second
     const interval = setInterval(() => {
-      const elapsedTime = getElapsedTimeSinceMidnight();
-      setElapsedTime(elapsedTime);
+      setElapsedTime(getElapsedTimeSinceMidnight());
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [serverTime]);
 
   // Renderer for countdown timer
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -50,6 +66,8 @@ export const Rounds = () => {
 
   // Calculate progress width based on elapsed time since midnight
   const progressWidth = (elapsedTime / (24 * 60 * 60 * 1000)) * 100; // 24 hours in milliseconds
+
+  if (!serverTime) return null; // or some loading state
 
   return (
     <section className="bonus-section section-padding">
@@ -78,7 +96,7 @@ export const Rounds = () => {
             >
               <div className="token-address-box">
                 <div className="token-numb">
-                  <input type="text" defaultValue={publicKey} readOnly />
+                  <input type="text" value={publicKey} readOnly />
                 </div>
                 <button
                   onClick={() => navigator.clipboard.writeText(publicKey)}
@@ -95,22 +113,14 @@ export const Rounds = () => {
           slidesPerView={1}
           pagination={{ clickable: true }}
           breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            1100: {
-              slidesPerView: 3,
-            },
-            1400: {
-              slidesPerView: 4,
-            },
-            1500: {
-              slidesPerView: 5,
-            },
+            640: { slidesPerView: 2 },
+            1100: { slidesPerView: 3 },
+            1400: { slidesPerView: 4 },
+            1500: { slidesPerView: 5 },
           }}
         >
-          {allRounds?.map((round) => {
-            const currentDate = new Date();
+          {allRounds.map((round) => {
+            const currentDate = new Date(serverTime);
             let status = "Upcoming"; // Default status
             if (currentDate >= round.active && currentDate <= round.expire) {
               status = "Active";
@@ -123,9 +133,7 @@ export const Rounds = () => {
                 <div
                   className={`bonus-box ${
                     status === "Closed" ? "sold-out-box" : ""
-                  }
-                  
-                  `}
+                  }`}
                   style={{
                     borderColor: status === "Upcoming" ? "#484646" : "#FB0001",
                   }}
@@ -163,31 +171,32 @@ export const Rounds = () => {
             );
           })}
         </Swiper>
-        {new Date() < cutoffDate && (
-          <div className="position-relative">
-            <div
-              className="progress mt-3"
-              role="progressbar"
-              aria-label="Animated striped example"
-            >
+        {new Date(serverTime) >= new Date("2024-08-07T00:00:00") &&
+          new Date(serverTime) < cutoffDate && (
+            <div className="position-relative">
               <div
-                className="progress-bar bg-danger progress-bar-striped progress-bar-animated"
-                style={{ width: `${progressWidth}%` }}
-              ></div>
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Animated striped example"
+              >
+                <div
+                  className="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                  style={{ width: `${progressWidth}%` }}
+                ></div>
+              </div>
+              <div
+                className={`countdown-timer mt-3 text-center ${
+                  progressWidth > 56 ? "text-white" : "text-black"
+                }`}
+              >
+                <p>Time Remaining:</p>
+                <Countdown
+                  date={Date.now() + (24 * 60 * 60 * 1000 - elapsedTime)}
+                  renderer={renderer}
+                />
+              </div>
             </div>
-            <div
-              className={`countdown-timer mt-3 text-center ${
-                progressWidth > 56 ? "text-white" : "text-black"
-              }`}
-            >
-              <p>Time Remaining:</p>
-              <Countdown
-                date={Date.now() + (24 * 60 * 60 * 1000 - elapsedTime)}
-                renderer={renderer}
-              />
-            </div>
-          </div>
-        )}
+          )}
       </div>
     </section>
   );

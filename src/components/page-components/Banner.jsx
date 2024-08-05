@@ -8,32 +8,112 @@ import Countdown from "react-countdown";
 export const Banner = () => {
   const { publicKey } = useWallet();
 
-  const cutoffDate = new Date("2024-08-14T00:00:00");
-  const [progressWidth, setProgressWidth] = useState(0); // Start with empty width
+  // const countdownStartDate = new Date("2024-08-05T00:00:00");
+  // const countdownEndDate = new Date(
+  //   countdownStartDate.getTime() + 10 * 24 * 60 * 60 * 1000
+  // ); // 10 days later
+  // const cutoffDate = new Date("2024-08-17T00:00:00"); // Update cutoff date to match the countdown end
 
-  // Function to get time remaining until next midnight
-  const getTimeUntilMidnight = () => {
-    const now = new Date();
-    const endOfDay = new Date(now);
-    endOfDay.setHours(24, 0, 0, 0); // Set to midnight of the next day
-    return endOfDay - now;
-  };
+  // const [serverTime, setServerTime] = useState(null);
 
-  const [countdownDuration, setCountdownDuration] =
-    useState(getTimeUntilMidnight);
+  // // Function to get time remaining until next midnight
+  // useEffect(() => {
+  //   // Fetch server time from an external API
+  //   const fetchServerTime = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://worldtimeapi.org/api/timezone/Etc/UTC"
+  //       );
+  //       const data = await response.json();
+  //       setServerTime(new Date(data.utc_datetime).getTime());
+  //     } catch (error) {
+  //       console.error("Failed to fetch server time:", error);
+  //     }
+  //   };
+
+  //   fetchServerTime();
+  // }, []);
+
+  // // Function to get time elapsed since midnight using server time
+  // const getElapsedTimeSinceMidnight = () => {
+  //   if (!serverTime) return 0;
+  //   const now = new Date(serverTime);
+  //   const startOfDay = new Date(now);
+  //   startOfDay.setUTCHours(0, 0, 0, 0); // Set to midnight of the current day UTC
+  //   return now - startOfDay;
+  // };
+
+  // const [elapsedTime, setElapsedTime] = useState(getElapsedTimeSinceMidnight());
+
+  // useEffect(() => {
+  //   // Update elapsed time every second
+  //   const interval = setInterval(() => {
+  //     setElapsedTime(getElapsedTimeSinceMidnight());
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, [serverTime]);
+
+  // const progressWidth = (elapsedTime / (24 * 60 * 60 * 1000)) * 100;
+
+  // const renderer = ({ hours, minutes, seconds, completed }) => {
+  //   if (completed) {
+  //     return <span>Time's up!</span>;
+  //   } else {
+  //     return (
+  //       <div id="timer">
+  //         <div>{hours} h</div> <div>{minutes}m</div> <div>{seconds}s</div>
+  //       </div>
+  //     );
+  //   }
+  // };
+
+  // const isCountdownVisible =
+  //   serverTime && new Date(serverTime) >= countdownStartDate;
+
+  // if (!serverTime) return null; // or some loading state
+
+  const [serverTime, setServerTime] = useState(null);
+  const cutoffDate = new Date("2024-08-17T00:00:00");
 
   useEffect(() => {
-    // Update countdown duration and progress width every second
+    // Fetch server time from an external API
+    const fetchServerTime = async () => {
+      try {
+        const response = await fetch(
+          "https://worldtimeapi.org/api/timezone/Etc/UTC"
+        );
+        const data = await response.json();
+        setServerTime(new Date(data.utc_datetime).getTime());
+      } catch (error) {
+        console.error("Failed to fetch server time:", error);
+      }
+    };
+
+    fetchServerTime();
+  }, []);
+
+  // Function to get time elapsed since midnight using server time
+  const getElapsedTimeSinceMidnight = () => {
+    if (!serverTime) return 0;
+    const now = new Date(serverTime);
+    const startOfDay = new Date(now);
+    startOfDay.setUTCHours(0, 0, 0, 0); // Set to midnight of the current day UTC
+    return now - startOfDay;
+  };
+
+  const [elapsedTime, setElapsedTime] = useState(getElapsedTimeSinceMidnight());
+
+  useEffect(() => {
+    // Update elapsed time every second
     const interval = setInterval(() => {
-      const remainingTime = getTimeUntilMidnight();
-      const totalTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-      setCountdownDuration(remainingTime);
-      setProgressWidth(((totalTime - remainingTime) / totalTime) * 100);
+      setElapsedTime(getElapsedTimeSinceMidnight());
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [serverTime]);
 
+  // Renderer for countdown timer
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       return <span>Time's up!</span>;
@@ -45,6 +125,11 @@ export const Banner = () => {
       );
     }
   };
+
+  // Calculate progress width based on elapsed time since midnight
+  const progressWidth = (elapsedTime / (24 * 60 * 60 * 1000)) * 100; // 24 hours in milliseconds
+
+  if (!serverTime) return null;
 
   return (
     <>
@@ -64,25 +149,26 @@ export const Banner = () => {
                   </h2>
                 </div>
 
-                {new Date() < cutoffDate && (
-                  <>
-                    <Countdown
-                      date={Date.now() + countdownDuration}
-                      renderer={renderer}
-                    />
+                {new Date(serverTime) >= new Date("2024-08-07T00:00:00") &&
+                  new Date(serverTime) < cutoffDate && (
+                    <>
+                      <Countdown
+                        date={Date.now() + (24 * 60 * 60 * 1000 - elapsedTime)}
+                        renderer={renderer}
+                      />
 
-                    <div
-                      className="progress my-4"
-                      role="progressbar"
-                      aria-label="Animated striped example"
-                    >
                       <div
-                        className="progress-bar bg-danger progress-bar-striped progress-bar-animated"
-                        style={{ width: `${progressWidth}%` }}
-                      ></div>
-                    </div>
-                  </>
-                )}
+                        className="progress my-4"
+                        role="progressbar"
+                        aria-label="Animated striped example"
+                      >
+                        <div
+                          className="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                          style={{ width: `${progressWidth}%` }}
+                        ></div>
+                      </div>
+                    </>
+                  )}
 
                 <form action="">
                   <div className="row mb-4">
