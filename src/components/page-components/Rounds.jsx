@@ -171,7 +171,7 @@ export const Rounds = () => {
             );
           })}
         </Swiper>
-        {new Date(serverTime) >= new Date("2024-08-07T00:00:00") &&
+        {new Date(serverTime) >= new Date("2024-08-06T00:00:00") &&
           new Date(serverTime) < cutoffDate && (
             <div className="position-relative">
               <div
