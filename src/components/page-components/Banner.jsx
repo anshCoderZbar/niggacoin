@@ -171,16 +171,19 @@ export const Banner = () => {
                   )}
 
                 <form action="">
-                  <div className="row mb-4">
+                  <div className="row  mb-4">
                     <div className="col-lg-7">
-                      <label htmlFor="">Amount in</label>
+                      <label className="d-flex align-items-center">
+                        <span>Amount in</span>
+                        <button className="text-white max_btn">MAX</button>
+                      </label>
                       <input
                         type="text"
-                        className="form-control"
+                        className="form-control mt-2"
                         placeholder="0.00"
                       />
                     </div>
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 mt-2">
                       <label htmlFor="">&nbsp;</label>
                       <div className="intigrate-span">
                         <input

@@ -243,6 +243,15 @@ input::-webkit-inner-spin-button {
 }
 
 
+.max_btn {
+  background-color: #fb0001;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
 /* Marquee Line Css */
 section.marquee-line {
   height: 115px;
