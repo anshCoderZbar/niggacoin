@@ -149,7 +149,7 @@ export const Banner = () => {
                   </h2>
                 </div>
 
-                {new Date(serverTime) >= new Date("2024-08-07T00:00:00") &&
+                {new Date(serverTime) >new Date("2024-08-06T00:00:00") &&
                   new Date(serverTime) < cutoffDate && (
                     <>
                       <Countdown
