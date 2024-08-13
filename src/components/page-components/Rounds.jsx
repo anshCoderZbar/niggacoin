@@ -67,7 +67,7 @@ export const Rounds = () => {
   // Calculate progress width based on elapsed time since midnight
   const progressWidth = (elapsedTime / (24 * 60 * 60 * 1000)) * 100; // 24 hours in milliseconds
 
-  if (!serverTime) return null; // or some loading state
+  // if (!serverTime) return null; // or some loading state
 
   return (
     <section className="bonus-section section-padding">
@@ -130,6 +130,9 @@ export const Rounds = () => {
 
             return (
               <SwiperSlide key={round.id} className="position-relative">
+                {round?.discount && (
+                  <button className="discount_btn">30%</button>
+                )}
                 <div
                   className={`bonus-box ${
                     status === "Closed" ? "sold-out-box" : ""
@@ -171,7 +174,7 @@ export const Rounds = () => {
             );
           })}
         </Swiper>
-        {new Date(serverTime) >= new Date("2024-08-06T00:00:00") &&
+        {new Date(serverTime) >= new Date("2024-08-07T00:00:00") &&
           new Date(serverTime) < cutoffDate && (
             <div className="position-relative">
               <div

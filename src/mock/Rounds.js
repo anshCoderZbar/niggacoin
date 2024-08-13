@@ -3,22 +3,22 @@ export const allRounds = [
     id: 1,
     rounds: "Round 1",
     value: "3,050,847",
-    active: new Date("August 6, 2024 00:00:00"),
-    expire: new Date("August 7, 2024 00:00:00"),
+    active: new Date("August 7, 2024 00:00:00"),
+    expire: new Date("August 8, 2024 00:00:00"),
   },
   {
     id: 2,
     rounds: "Round 2",
     value: "2,745,762",
-    active: new Date("August 7, 2024 00:00:00"),
-    expire: new Date("August 8, 2024 00:00:00"),
+    active: new Date("August 8, 2024 00:00:00"),
+    expire: new Date("August 9, 2024 00:00:00"),
   },
   {
     id: 3,
     rounds: "Round 3",
     value: "2,471,186",
-    active: new Date("August 8, 2024 00:00:00"),
-    expire: new Date("August 9, 2024 00:00:00"),
+    active: new Date("August 9, 2024 00:00:00"),
+    expire: new Date("August 10, 2024 00:00:00"),
   },
   {
     id: 4,
@@ -54,6 +54,7 @@ export const allRounds = [
     value: "1,459,210",
     active: new Date("August 14, 2024 00:00:00"),
     expire: new Date("August 15, 2024 00:00:00"),
+    discount: true,
   },
   {
     id: 9,
@@ -61,6 +62,7 @@ export const allRounds = [
     value: "1,313,289",
     active: new Date("August 15, 2024 00:00:00"),
     expire: new Date("August 16, 2024 00:00:00"),
+    discount: true,
   },
   {
     id: 10,
@@ -68,5 +70,6 @@ export const allRounds = [
     value: "1,181,960",
     active: new Date("August 16, 2024 00:00:00"),
     expire: new Date("August 17, 2024 00:00:00"),
+    discount: true,
   },
 ];

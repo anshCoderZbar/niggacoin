@@ -481,6 +481,18 @@
   padding-bottom: 30px;
 }
 
+.discount_btn {
+  position: absolute;
+  right: 0;
+  background: linear-gradient(161deg, #ff8762, #fb0001);
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  z-index: 5;
+  top: 4px;
+  border-radius: 9px;
+}
+
 
 /* Footer End */
 
